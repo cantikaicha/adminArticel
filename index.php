@@ -1,157 +1,117 @@
 <?php
-require 'function.php';
-require 'ceksession.php';
+session_start();
+if (isset($_SESSION['username'])) {
+    echo "<script>
+        alert('Anda sudah login!');
+        window.location.href = 'dashboard.php';
+    </script>";
+    exit();
+}
+include 'koneksi.php';
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
-        <meta name="description" content="" />
-        <meta name="author" content="" />
-        <title>Dashboard - Kelola Konten</title>
-        <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
-        <link href="css/styles.css" rel="stylesheet" />
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
-    </head>
-    <body class="sb-nav-fixed">
-        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
-            <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.php">MENU UTAMA</a>
-            <!-- Sidebar Toggle-->
-            <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-            <!-- Navbar-->
-            <ul class="navbar-nav ms-auto me-0 me-md-3 my-2 my-md-0">
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                        <li><a class="dropdown-item" href="logout.php">Logout</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </nav>
-        <div id="layoutSidenav">
-            <div id="layoutSidenav_nav">
-                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
-                    <div class="sb-sidenav-menu">
-                        <div class="nav">
-                            <a class="nav-link" href="index.php">
-                                <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-                                Dashboard
-                            </a>
-                            <a class="nav-link" href="artikel.php">
-                                <div class="sb-nav-link-icon"><i class="bi bi-file-earmark-text-fill"></i></div>
-                                Artikel
-                            </a>
-                            <a class="nav-link" href="kategori.php">
-                                <div class="sb-nav-link-icon"><i class="bi bi-bookmark-check-fill"></i></div>
-                                Kategori
-                            </a>
-                            <a class="nav-link" href="penulis.php">
-                                <div class="sb-nav-link-icon"><i class="bi bi-person-fill"></i></div>
-                                Penulis
-                            </a>
-                            <a class="nav-link" href="logout.php">
-                                <div class="sb-nav-link-icon"><i class="bi bi-door-closed-fill"></i></div>
-                                Logout
-                            </a>
-                        </div>
-                    </div>
-                    <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        <?php echo $_SESSION['email']; ?>
-                    </div>
-                </nav>
-            </div>
-            <div id="layoutSidenav_content">
-                <main>
-                    <div class="container-fluid px-4">
-                        <h1 class="mt-4">Dashboard</h1>
-                        <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Silahkan Pilih Salah Satu Menu Berikut :</li>
-                        </ol>
-                        <div class="row">
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-primary text-white mb-4">
-                                    <div class="card-body">Artikel</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <?php
-                                        //Query untuk Mengambil Data dari Tabel
-                                        $sql = "SELECT * FROM article";
-                                        $query = mysqli_query($conn, $sql);
 
-                                        // Menghitung Jumlah Record
-                                        $count = mysqli_num_rows($query);
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bollyreads</title>
+    <link rel="icon" href="./assets/images/ICON1.png" type="image/png">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', Arial, sans-serif;
+            background: #F24C1A;
+            min-height: 100vh;
+        }
 
-                                        // Menampilkan Hasil
-                                        // echo "Jumlah Record dalam Tabel: $count"
-                                        ?>
-                                        <a class="small text-white stretched-link" href="artikel.php"><?php echo $count . ' artikel' ?></a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-warning text-white mb-4">
-                                    <div class="card-body">Kategori</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <?php
-                                        //Query untuk Mengambil Data dari Tabel
-                                        $sql = "SELECT * FROM category";
-                                        $query = mysqli_query($conn, $sql);
+        .header-btn {
+            background: #fff;
+            color: #F24C1A;
+            font-weight: bold;
+            border-radius: 9999px;
+            padding: 0.5rem 1.5rem;
+            margin-left: 1rem;
+            transition: background 0.3s, color 0.3s;
+        }
 
-                                        // Menghitung Jumlah Record
-                                        $count = mysqli_num_rows($query);
+        .header-btn:hover {
+            background: #F24C1A;
+            color: #fff;
+            border: 1px solid #fff;
+        }
 
-                                        // Menampilkan Hasil
-                                        // echo "Jumlah Record dalam Tabel: $count"
-                                        ?>
-                                        <a class="small text-white stretched-link" href="kategori.php"><?php echo $count . ' kategori' ?></a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-3 col-md-6">
-                                <div class="card bg-success text-white mb-4">
-                                    <div class="card-body">Penulis</div>
-                                    <div class="card-footer d-flex align-items-center justify-content-between">
-                                        <?php
-                                        //Query untuk Mengambil Data dari Tabel
-                                        $sql = "SELECT * FROM author";
-                                        $query = mysqli_query($conn, $sql);
+        .main-title {
+            font-size: 6rem;
+            font-weight: 700;
+            color: transparent;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            -webkit-text-stroke: 3px #fff;
+        }
 
-                                        // Menghitung Jumlah Record
-                                        $count = mysqli_num_rows($query);
+        .main-title span {
+            display: block;
+        }
 
-                                        // Menampilkan Hasil
-                                        // echo "Jumlah Record dalam Tabel: $count"
-                                        ?>
-                                        <a class="small text-white stretched-link" href="penulis.php"><?php echo $count . ' penulis' ?></a>
-                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </main>
-                <footer class="py-4 bg-light mt-auto">
-                    <div class="container-fluid px-4">
-                        <div class="d-flex align-items-center justify-content-between small">
-                            <div class="text-muted">Blog Bollywood &copy; My Website 2025</div>
-                        </div>
-                    </div>
-                </footer>
-            </div>
+        .main-gif {
+            max-width: 800px;
+            width: 100%;
+            border-radius: 1.5rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+            margin: 1rem auto 0 auto;
+        }
+
+        .nav-link {
+            color: #fff;
+            font-weight: 500;
+            margin: 0 1rem;
+            transition: color 0.2s;
+        }
+
+        .nav-link:hover {
+            color: #ffe0c2;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="flex justify-between items-center px-8 py-6 bg-[#000000] bg-opacity-50" style="background: #F24C1A;">
+        <div class="flex items-center gap-2">
+            <img src="./assets/images/navbar.png" alt="Logo" class="w-64 h-auto">
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-        <script src="js/scripts.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
-        <script src="assets/demo/chart-area-demo.js"></script>
-        <script src="assets/demo/chart-bar-demo.js"></script>
-        <script src="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/umd/simple-datatables.min.js" crossorigin="anonymous"></script>
-        <script src="js/datatables-simple-demo.js"></script>
-    </body>
+        <div class="flex items-center">
+            <a href="register.php" class="header-btn">DAFTARKAN DIRIMU</a>
+            <a href="login.php" class="header-btn">GABUNG BOLLYREADS</a>
+        </div>
+    </header>
+    <!-- Main Content -->
+    <main class="flex flex-col items-start justify-start min-h-[70vh] text-left px-4">
+        <div class="relative w-full max-w-3xl" style="height:500px;">
+            <video
+                src="./assets/video/main.mp4"
+                autoplay
+                muted
+                loop
+                class="absolute top-0 left-1/2 transform-translate-x-1/2 h-full object-cover main-gif"
+                style="z-index: 1; max-width:800px; width:100%;">
+            </video>
+            <div class="absolute inset-0" style="z-index: 2;"></div>
+            <h1 class="main-title relative z-10 text-left w-full pl-4">
+                <span>BACA ARTIKEL BOLLYWOOD</span>
+                <span>YANG KEREN</span>
+            </h1>
+        </div>
+    </main>
+    <!-- Footer -->
+    <footer class="text-white text-center pt-6 pb-2" style="background: #F24C1A;">
+        <div class="font-bold">Cantika Melati Nugraini</div>
+        <div class="text-xs mt-2">Pemrograman Web</div>
+    </footer>
+</body>
+
 </html>
