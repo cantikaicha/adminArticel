@@ -112,11 +112,16 @@ Proyek blog ini dibuat untuk menampilkan artikel rekomendasi film Bollywood seca
 
 # Untuk Login :
 (1, 'Cantika Melati', 'cantikamelati@gmail.com', '$2y$10$gvWl8.txfHeAKsGk4wG37u/3ka/T5PIT2hZ2aciHto.5JWUaMKXlC'), ini sandinya 12345678
+
 (2, 'Ali Satri Efendi', 'alisatriefendi@gmail.com', '$2y$10$/xphEnWXRBdjah4otOVrgOV0i7FUoa155ap1cOuNx4GV1POKsrMCK'), ini sandinya 12345678
+
 (3, 'alvinzanua', 'alvinzanua@gmail.com', '$2y$10$KVmzOPoW6EImcF/EVzNVluFj1UZMCiotLrytYyYN1N6VxaH0.7gRi'), ini sandinya Wedani123
+
 (4, 'jelekanjay', 'jelekanjay@gmail.com', '$2y$10$Zo25v5DnbpOpir4edomz7.heEWKr2nKR8nNUO7hKeL9139h.5yeJS'); ini sandinya Wedani123
 
 # NB :
 String 12345678 => dihash menjadi $2y$10$gvWl8.txfHeAKsGk4wG37u/3ka/T5PIT2hZ2aciHto.5JWUaMKXlC
+
 tujuanya untuk menyamarkan password agar tidak diketahui oleh developer hash tidak bisa dikembalikan ke bentuk asal 
+
 kalau encoded dan decoded base64 bisa
