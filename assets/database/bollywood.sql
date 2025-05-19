@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Waktu pembuatan: 19 Bulan Mei 2025 pada 17.45
+-- Waktu pembuatan: 19 Bulan Mei 2025 pada 19.16
 -- Versi server: 8.0.30
 -- Versi PHP: 8.2.27
 
@@ -28,12 +28,11 @@ SET time_zone = "+00:00";
 --
 
 CREATE TABLE `article` (
-  `id` int NOT NULL AUTO_INCREMENT,
+  `id` int NOT NULL,
   `title` varchar(534) COLLATE utf8mb4_general_ci NOT NULL,
   `content` text COLLATE utf8mb4_general_ci NOT NULL,
   `image_url` varchar(255) COLLATE utf8mb4_general_ci NOT NULL,
-  `publish_date` date NOT NULL,
-  PRIMARY KEY (`id`)
+  `publish_date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -43,7 +42,7 @@ CREATE TABLE `article` (
 INSERT INTO `article` (`id`, `title`, `content`, `image_url`, `publish_date`) VALUES
 (1, 'Kabhi Khushi Kabhie Gham', 'Anak 20-an pasti sudah tidak asing lagi dengan film legendaris ini. Film India bergenre romantis yang cukup fenomenal di masanya yaitu tahun 2001 dan bahkan masih fenomenal sampai sekarang. Film ini bercerita tentang kisah yang terjadi di suatu keluarga yang ceritanya mengandung bawang karena saking sedihnya.\nDikisahkan, Yashvardhan Raichand dan sang istri bernama Nandini Raichand memutuskan akan mengadopsi seorang anak laki-laki bernama Rahul Raichand yang berumur 8 tahun.\nKetika dewasa, sosok Rahul kecil diperankan Shah Rukh Khan. Suatu hari, Rahul bertemu Anjali, seorang gadis cantik dan ceria yang diperankan Kajol. Singkatnya, Rahul telah jatuh cinta pada Anjali. Tapi sayangnya, keluarganya tak merestui hubungan mereka, karena Anjali berasal dari keluarga biasa. Sejak saat itu lah konflik terus terjadi dan kisah yang menguras air mata.\n', 'Picture1.jpg', '2025-04-17'),
 (2, 'Ek Villain', 'Film yang ditayangkan pada tahun 2014 ini berhasil mencuri perhatian di seluruh dunia karena alur cerita yang menarik. Cerita sedih, kesal, romantis ada pada film satu ini, pecinta Bollywood pasti akan mengakui bahwa film ini terlalu worth it untuk di tonton.\r\nFilm ini berkisah tentang Guru, seorang mantan penjahat yang marah karena istrinya dibunuh oleh pembunuh berantai kejam, Rakesh. Guru (Sidharth Malhotra) adalah seorang penjahat yang berubah setelah jatuh cinta dengan Aisha (Shraddha Kapoor). Ia mencoba hidup normal, tetapi kehidupannya hancur ketika Aisha dibunuh oleh pembunuh berantai bernama Rakesh (Riteish Deshmukh). Guru kemudian membalaskan dendamnya kepada Rakesh.\r\n', 'Picture2.jpg', '2025-04-17'),
-(3, 'Aashiqui 2', 'Film yang terkenal dengann soundtrack 'Tum Hi Ho' ini dirilis pada tahun 2013, yang dimana film ini menyentuh hati banyak penonton dengan kisah cinta yang intens dan penuh kesedihan. film ini adalah sekuel dari film \'Aashiqui\' yang dirilis pada tahun 1990. \'Aashiqui 2\' mengisahkan tentang cinta yang indah namun penuh dengan penderitaan dan pengorbanan, menjadikannya sebuah perjalanan emosional yang mendalam.\r\n\'Aashiqui 2\' mengikuti kisah Rahul (diperankan oleh Aditya Roy Kapur), seorang penyanyi terkenal yang sedang berada di puncak kariernya namun terjebak dalam kecanduan alkohol dan depresi. Hidupnya berubah drastis saat ia bertemu dengan Aarohi (diperankan oleh Shraddha Kapoor), seorang penyanyi kafe yang memiliki bakat luar biasa tetapi belum dikenal. Rahul melihat potensi besar dalam diri Aarohi dan memutuskan untuk membantunya mencapai impian di dunia musik.\r\nSeiring waktu, hubungan antara Rahul dan Aarohi berkembang dari kerja sama profesional menjadi cinta yang dalam. Namun, kesuksesan Aarohi juga membawa tantangan besar dalam hubungan mereka. Rahul, yang semakin tenggelam dalam kecanduan alkohol dan perasaannya yang gelap, mulai menunjukkan sisi destruktif yang mempengaruhi kehidupan Aarohi. Konflik ini membangun ketegangan emosional yang memuncak dalam akhir cerita yang tragis.\r\n', 'Picture3.jpg', '2025-04-17'),
+(3, 'Aashiqui 2', 'Film yang terkenal dengann soundtrack ‘Tum Hi Ho’ ini dirilis pada tahun 2013, yang dimana film ini menyentuh hati banyak penonton dengan kisah cinta yang intens dan penuh kesedihan. film ini adalah sekuel dari film \'Aashiqui\' yang dirilis pada tahun 1990. \'Aashiqui 2\' mengisahkan tentang cinta yang indah namun penuh dengan penderitaan dan pengorbanan, menjadikannya sebuah perjalanan emosional yang mendalam.\r\n\'Aashiqui 2\' mengikuti kisah Rahul (diperankan oleh Aditya Roy Kapur), seorang penyanyi terkenal yang sedang berada di puncak kariernya namun terjebak dalam kecanduan alkohol dan depresi. Hidupnya berubah drastis saat ia bertemu dengan Aarohi (diperankan oleh Shraddha Kapoor), seorang penyanyi kafe yang memiliki bakat luar biasa tetapi belum dikenal. Rahul melihat potensi besar dalam diri Aarohi dan memutuskan untuk membantunya mencapai impian di dunia musik.\r\nSeiring waktu, hubungan antara Rahul dan Aarohi berkembang dari kerja sama profesional menjadi cinta yang dalam. Namun, kesuksesan Aarohi juga membawa tantangan besar dalam hubungan mereka. Rahul, yang semakin tenggelam dalam kecanduan alkohol dan perasaannya yang gelap, mulai menunjukkan sisi destruktif yang mempengaruhi kehidupan Aarohi. Konflik ini membangun ketegangan emosional yang memuncak dalam akhir cerita yang tragis.\r\n', 'Picture3.jpg', '2025-04-17'),
 (4, 'Padmavati', 'Film ini tayang pada tahun 2018 dengan latar kerajaan yang mengambil cerita dari kerajaan di India pada abad abad lalu. Ceita film ini sangatlah menarik dan banyak pelajaran yang dapat dipetik, misalnya keadilan, kesetiaan, dan keserakahan yang musnah.\r\nPadmaavat mengisahkan Padmavati (Deepika Padukone), seorang putri kerajaan Sinhala yang menikah dengan Raja Rajput, Ratan Singh (Shahid Kapoor). Kisah tersebut berkelindan dengan perjalanan Alauddin Khilji (Ranveer Singh) yang berambisi menjadi raja Delhi dan menaklukkan kerajaan-kerajaan lainnya. Sebab pengaruh dan sakit hati Raghav Chetan, seorang Brahma yang diusir dari Mewar Ratan Singh, Alauddin dengan tekad bajanya bersikeras ingin merebut sang ratu Padmavati dari kerajaannya. Disinilah keberanian, ketegasan dan kecerdasan Padmavati diuji untuk menghadapi Alauddin Khilji yang digambarkan sebagai seorang raja yang keji.\r\nKisah Rani Padmavati sendiri memiliki beragam versi, antara lain versi Malik Mohammad Jayasi, James Tod, Hemratan, dan berbagai karya literatur lainnya.\r\n', 'Picture4.jpg', '2018-02-02'),
 (5, 'Sanam Teri Kasam', 'Film yang rilis pada tahun 2016 ini berhasil mencuri hati para penonton. Perjuangan cinta yang apik dan menguras emosi dan adat istiadat India juga digambarkan dalam film ini.\r\nBerkisah tentang Saru, seorang pustakawan muda yang kesulitan mendapatkan pasangan karena dianggap kurang menarik. Tekanan datang dari keluarga, terutama saat tunangan adiknya memberi batas waktu satu bulan untuk Saru menikah. Ayahnya pun tidak merestui hubungan apa pun, membuat Saru merasa terpinggirkan.\r\nDalam keputusasaan, Saru bertemu Inder, mantan narapidana yang tinggal satu apartemen. Awalnya mereka bertemu tak sengaja, lalu menjadi dekat, meski hubungan mereka tak direstui. Saat Saru jatuh sakit, dokter menyatakan ia mengidap meningoma dan tak punya banyak waktu. Ia pun meminta Inder untuk menikahinya. Mereka sempat merasakan kebahagiaan singkat sebelum akhirnya Saru meninggal di pelukan Inder, yang terus mengenangnya setelah kepergiannya.', 'Picture5.jpg', '2025-04-17'),
 (6, 'Teri Baaton Mein Aisa Uljha Jiya', 'Film ini rilis pada tahun 2024, film ini menggabungkan unsur Artificial Intelligence (AI), perasaan  manusia, dan teknologi. Film ini bercerita tentang  kisah cinta antara Aryan Agnihotri (Shahid Kapoor) dan Sifra (Kriti Sanon), robot wanita super cerdas.\r\nFilm ini menceritakan Aryan, insinyur robotika asal India, yang pergi ke AS dan jatuh cinta pada SIFRA asisten cerdas yang ternyata adalah robot ciptaan bibinya. Setelah mengetahui identitas asli SIFRA, Aryan patah hati dan kembali ke India untuk menjalani perjodohan. Namun, ia tak bisa melupakan SIFRA dan akhirnya membawanya pulang sebagai calon istri, tanpa memberi tahu keluarganya bahwa SIFRA adalah robot. Hubungan mereka diuji saat SIFRA mengalami kerusakan sistem, termasuk di hari pernikahan. Film ini memadukan komedi, romansa, dan refleksi etis tentang hubungan manusia dengan kecerdasan buatan.\r\n', 'Picture6.jpg', '2025-04-17'),
@@ -112,7 +111,7 @@ CREATE TABLE `author` (
   `username` varchar(100) CHARACTER SET utf8mb4 COLLATE utf8mb4_general_ci NOT NULL,
   `email` varchar(150) COLLATE utf8mb4_general_ci DEFAULT NULL,
   `password` varchar(255) COLLATE utf8mb4_general_ci DEFAULT NULL,
-  `role` enum('admin','user') COLLATE utf8mb4_general_ci NOT NULL DEFAULT 'user'
+  `role` varchar(10) COLLATE utf8mb4_general_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -120,7 +119,7 @@ CREATE TABLE `author` (
 --
 
 INSERT INTO `author` (`author_id`, `username`, `email`, `password`, `role`) VALUES
-(1, 'Cantika Melati', 'cantikamelati@gmail.com', '$2y$10$gvWl8.txfHeAKsGk4wG37u/3ka/T5PIT2hZ2aciHto.5JWUaMKXlC', 'user'),
+(1, 'Cantika Melati', 'cantikamelati@gmail.com', '$2y$10$gvWl8.txfHeAKsGk4wG37u/3ka/T5PIT2hZ2aciHto.5JWUaMKXlC', 'admin'),
 (2, 'Ali Satri Efendi', 'alisatriefendi@gmail.com', '$2y$10$/xphEnWXRBdjah4otOVrgOV0i7FUoa155ap1cOuNx4GV1POKsrMCK', 'admin'),
 (3, 'alvinzanua', 'alvinzanua@gmail.com', '$2y$10$KVmzOPoW6EImcF/EVzNVluFj1UZMCiotLrytYyYN1N6VxaH0.7gRi', 'user'),
 (4, 'jelekanjay', 'jelekanjay@gmail.com', '$2y$10$Zo25v5DnbpOpir4edomz7.heEWKr2nKR8nNUO7hKeL9139h.5yeJS', 'user');
@@ -265,6 +264,12 @@ ALTER TABLE `kontributor`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `article`
+--
+ALTER TABLE `article`
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+
+--
 -- AUTO_INCREMENT untuk tabel `category`
 --
 ALTER TABLE `category`
@@ -290,28 +295,24 @@ ALTER TABLE `kontributor`
 -- Ketidakleluasaan untuk tabel `article_author`
 --
 ALTER TABLE `article_author`
-  ADD CONSTRAINT `fk_article_author_article` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`),
   ADD CONSTRAINT `fk_article_author_author` FOREIGN KEY (`author_id`) REFERENCES `author` (`author_id`);
 
 --
 -- Ketidakleluasaan untuk tabel `article_category`
 --
 ALTER TABLE `article_category`
-  ADD CONSTRAINT `fk_article_category_article` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`),
   ADD CONSTRAINT `fk_article_category_category` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);
 
 --
 -- Ketidakleluasaan untuk tabel `favorite`
 --
 ALTER TABLE `favorite`
-  ADD CONSTRAINT `favorite_ibfk_1` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `favorite_ibfk_3` FOREIGN KEY (`author_id_author`) REFERENCES `author` (`author_id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Ketidakleluasaan untuk tabel `kontributor`
 --
 ALTER TABLE `kontributor`
-  ADD CONSTRAINT `fk_kontributor_article` FOREIGN KEY (`article_id`) REFERENCES `article` (`id`),
   ADD CONSTRAINT `fk_kontributor_author` FOREIGN KEY (`author_id`) REFERENCES `author` (`author_id`),
   ADD CONSTRAINT `fk_kontributor_category` FOREIGN KEY (`category_id`) REFERENCES `category` (`id`);
 COMMIT;

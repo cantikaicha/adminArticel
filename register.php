@@ -1,5 +1,8 @@
 <?php
+// mulai sesi 
 session_start();
+
+// cek apakah user sudah login
 if (isset($_SESSION['username'])) {
     echo "<script>
         alert('Anda sudah login!');
@@ -7,6 +10,8 @@ if (isset($_SESSION['username'])) {
     </script>";
     exit();
 }
+
+// baru lakukan koneksi ke database
 include 'koneksi.php';
 
 

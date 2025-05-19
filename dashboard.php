@@ -48,8 +48,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['add_to_watchlist'])) 
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && (isset($_POST['keyword']) || isset($_POST['category']))) {
     $params = [];
-    if (isset($_POST['keyword'])) $params['keyword'] = $_POST['keyword'];
-    if (isset($_POST['category'])) $params['category'] = $_POST['category'];
+    if (isset($_POST['keyword']))
+        $params['keyword'] = $_POST['keyword'];
+    if (isset($_POST['category']))
+        $params['category'] = $_POST['category'];
     $query = http_build_query($params);
     header("Location: dashboard.php?$query");
     exit();
@@ -163,7 +165,8 @@ $result = $stmt->get_result();
 <body class="card-wattpad">
     <div class="flex flex-col md:flex-row lg:p-2 lg:ml-2 bg-white">
         <!-- Sidebar -->
-        <div class="hidden md:block w-64 sidebar-wattpad fixed justify-between inset-y-0 left-0 md:flex flex-col items-center py-4 px-2 m-2 rounded-lg">
+        <div
+            class="hidden md:block w-64 sidebar-wattpad fixed justify-between inset-y-0 left-0 md:flex flex-col items-center py-4 px-2 m-2 rounded-lg">
             <div class="flex flex-wrap">
                 <a href="dashboard.php" class="flex items-center">
                     <img src="./assets/images/navbar3.png" alt="Logo" class="w-40 h-auto lg:w-60 pb-6">
@@ -171,13 +174,15 @@ $result = $stmt->get_result();
                 <a href="dashboard.php"
                     class="flex items-center gap-x-2 w-full py-2 px-4 text-center text-[#ff7300] rounded mb-4 font-bold hover:text-[#ff730f] duration-500 transition-all">
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#ff7300" viewBox="0 0 256 256">
-                        <path d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32Zm-16,72h16v48H192Zm16-16H192V48h16ZM48,48H176V208H48ZM208,208H192V168h16v40Zm-56.25-42a39.76,39.76,0,0,0-17.19-23.34,32,32,0,1,0-45.12,0A39.84,39.84,0,0,0,72.25,166a8,8,0,0,0,15.5,4c2.64-10.25,13.06-18,24.25-18s21.62,7.73,24.25,18a8,8,0,1,0,15.5-4ZM96,120a16,16,0,1,1,16,16A16,16,0,0,1,96,120Z"></path>
+                        <path
+                            d="M208,32H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32Zm-16,72h16v48H192Zm16-16H192V48h16ZM48,48H176V208H48ZM208,208H192V168h16v40Zm-56.25-42a39.76,39.76,0,0,0-17.19-23.34,32,32,0,1,0-45.12,0A39.84,39.84,0,0,0,72.25,166a8,8,0,0,0,15.5,4c2.64-10.25,13.06-18,24.25-18s21.62,7.73,24.25,18a8,8,0,1,0,15.5-4ZM96,120a16,16,0,1,1,16,16A16,16,0,0,1,96,120Z">
+                        </path>
                     </svg>
                     Daftar Artikel
                 </a>
                 <a href="favorite_article.php"
-                    class="flex items-center gap-x-2 w-full py-2 px-4 text-center text-[#ff7300] rounded hover:text-[#ff730f] font-bold duration-500 transition-all"> <svg
-                        xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#ff7300" viewBox="0 0 256 256">
+                    class="flex items-center gap-x-2 w-full py-2 px-4 text-center text-[#ff7300] rounded hover:text-[#ff730f] font-bold duration-500 transition-all">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#ff7300" viewBox="0 0 256 256">
                         <path
                             d="M83.19,174.4a8,8,0,0,0,11.21-1.6,52,52,0,0,1,83.2,0,8,8,0,1,0,12.8-9.6A67.88,67.88,0,0,0,163,141.51a40,40,0,1,0-53.94,0A67.88,67.88,0,0,0,81.6,163.2,8,8,0,0,0,83.19,174.4ZM112,112a24,24,0,1,1,24,24A24,24,0,0,1,112,112Zm96-88H64A16,16,0,0,0,48,40V64H32a8,8,0,0,0,0,16H48v40H32a8,8,0,0,0,0,16H48v40H32a8,8,0,0,0,0,16H48v24a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V40A16,16,0,0,0,208,24Zm0,192H64V40H208Z">
                         </path>
@@ -187,12 +192,17 @@ $result = $stmt->get_result();
                 <a href="logout.php" onclick="return confirm('Apakah Anda yakin ingin keluar ?');"
                     class="flex items-center gap-x-2 w-full py-2 px-4 text-center text-[#ff7300] rounded hover:text-[#ff730f] font-bold duration-500 transition-all mt-4">
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#ff7300" viewBox="0 0 256 256">
-                        <path d="M120,216a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V40a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H56V208h56A8,8,0,0,1,120,216Zm109.66-93.66-40-40a8,8,0,0,0-11.32,11.32L204.69,120H112a8,8,0,0,0,0,16h92.69l-26.35,26.34a8,8,0,0,0,11.32,11.32l40-40A8,8,0,0,0,229.66,122.34Z"></path>
+                        <path
+                            d="M120,216a8,8,0,0,1-8,8H48a8,8,0,0,1-8-8V40a8,8,0,0,1,8-8h64a8,8,0,0,1,0,16H56V208h56A8,8,0,0,1,120,216Zm109.66-93.66-40-40a8,8,0,0,0-11.32,11.32L204.69,120H112a8,8,0,0,0,0,16h92.69l-26.35,26.34a8,8,0,0,0,11.32,11.32l40-40A8,8,0,0,0,229.66,122.34Z">
+                        </path>
                     </svg>
                     Keluar
                 </a>
             </div>
             <div class="bg-white rounded-lg mx-2 px-2 py-4 pr-8 border border-[#ff7300]" style="font-size: 15px;">
+                <p class="font-bold text-orange-wattpad underline">Mode : 
+                    <?php echo htmlspecialchars($_SESSION['role']); ?>
+                </p>
                 <p>Masuk sebagai
                     <?php echo htmlspecialchars($_SESSION['email']); ?>
                 </p>
@@ -263,24 +273,32 @@ $result = $stmt->get_result();
                         value="<?php echo htmlspecialchars($keyword); ?>"
                         class="w-full bg-white text-gray-800 flex-1 py-2 px-16 rounded-lg border border-orange-500">
                     <button type="submit" class="absolute left-2 p-2 font-bold">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#00000" viewBox="0 0 256 256">
-                            <path d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z"></path>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="#00000"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M229.66,218.34l-50.07-50.06a88.11,88.11,0,1,0-11.31,11.31l50.06,50.07a8,8,0,0,0,11.32-11.32ZM40,112a72,72,0,1,1,72,72A72.08,72.08,0,0,1,40,112Z">
+                            </path>
                         </svg>
                     </button>
                     <button type="button" id="clear-search"
                         class="absolute right-1 py-2.5 px-1 text-black hover:text-gray-900">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#00000" viewBox="0 0 256 256">
-                            <path d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z"></path>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" fill="#00000"
+                            viewBox="0 0 256 256">
+                            <path
+                                d="M205.66,194.34a8,8,0,0,1-11.32,11.32L128,139.31,61.66,205.66a8,8,0,0,1-11.32-11.32L116.69,128,50.34,61.66A8,8,0,0,1,61.66,50.34L128,116.69l66.34-66.35a8,8,0,0,1,11.32,11.32L139.31,128Z">
+                            </path>
                         </svg>
                     </button>
                 </form>
 
                 <!-- Form Filter -->
                 <form method="POST" action="dashboard.php" id="filter-form" class="ml-2">
-                    <select name="category" id="category-select" class="px-2 py-2 rounded border border-orange-500 bg-white text-gray-800">
+                    <select name="category" id="category-select"
+                        class="px-2 py-2 rounded border border-orange-500 bg-white text-gray-800">
                         <option value="0">Semua Kategori</option>
                         <?php foreach ($categoryList as $cat): ?>
-                            <option value="<?php echo $cat['id']; ?>" <?php if ($selectedCategory == $cat['id']) echo 'selected'; ?>><?php echo htmlspecialchars($cat['name']); ?></option>
+                            <option value="<?php echo $cat['id']; ?>" <?php if ($selectedCategory == $cat['id'])
+                                   echo 'selected'; ?>><?php echo htmlspecialchars($cat['name']); ?></option>
                         <?php endforeach; ?>
                     </select>
                 </form>
@@ -313,7 +331,8 @@ $result = $stmt->get_result();
                                             class="btn-uniform bg-orange-500 hover:bg-orange-600 text-white rounded flex items-center justify-center gap-1">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 h-4"
                                                 viewBox="0 0 16 16">
-                                                <path d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm3 7.5H8.5V11a.5.5 0 0 1-1 0V8.5H5a.5.5 0 0 1 0-1h2.5V5a.5.5 0 0 1 1 0v2.5H11a.5.5 0 0 1 0 1z" />
+                                                <path
+                                                    d="M8 1a7 7 0 1 0 0 14A7 7 0 0 0 8 1zm3 7.5H8.5V11a.5.5 0 0 1-1 0V8.5H5a.5.5 0 0 1 0-1h2.5V5a.5.5 0 0 1 1 0v2.5H11a.5.5 0 0 1 0 1z" />
                                             </svg>
                                             Favorit
                                         </button>
@@ -336,17 +355,20 @@ $result = $stmt->get_result();
                                             class="btn-uniform bg-blue-500 hover:bg-blue-600 text-white rounded flex items-center justify-center gap-1">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 h-4"
                                                 viewBox="0 0 16 16">
-                                                <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                                                <path
+                                                    d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
                                             </svg>
                                             Edit
                                         </a>
-                                        <a href="admin/hapus_article.php?id=<?php echo $row['id']; ?>" 
-                                           onclick="return confirm('Apakah Anda yakin ingin menghapus artikel ini?');"
-                                           class="btn-uniform bg-red-500 hover:bg-red-600 text-white rounded flex items-center justify-center gap-1">
+                                        <a href="admin/hapus_article.php?id=<?php echo $row['id']; ?>"
+                                            onclick="return confirm('Apakah Anda yakin ingin menghapus artikel ini?');"
+                                            class="btn-uniform bg-red-500 hover:bg-red-600 text-white rounded flex items-center justify-center gap-1">
                                             <svg xmlns="http://www.w3.org/2000/svg" fill="currentColor" class="w-4 h-4"
                                                 viewBox="0 0 16 16">
-                                                <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
-                                                <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                                                <path
+                                                    d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z" />
+                                                <path fill-rule="evenodd"
+                                                    d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z" />
                                             </svg>
                                             Hapus
                                         </a>
@@ -357,7 +379,8 @@ $result = $stmt->get_result();
                     <?php } ?>
                 </div>
             <?php else: ?>
-                <p class="text-white underline font-bold">Artikel tidak ditemukan untuk kata kunci "<?php echo htmlspecialchars($keyword); ?>".</p>
+                <p class="text-white underline font-bold">Artikel tidak ditemukan untuk kata kunci
+                    "<?php echo htmlspecialchars($keyword); ?>".</p>
             <?php endif; ?>
 
             <!-- Tambahkan tombol Tambah Artikel untuk admin -->
@@ -416,19 +439,22 @@ $result = $stmt->get_result();
                         <div class="flex items-center gap-2 mt-6">
                             <a href="https://www.instagram.com/alvinzanua" target="__blank"
                                 class="flex items-center gap-2 rounded-full border border-orange-500">
-                                <button class="rounded-full p-3 bg-orange-500 flex items-center justify-center cursor-pointer hover:bg-orange-600 transition">
+                                <button
+                                    class="rounded-full p-3 bg-orange-500 flex items-center justify-center cursor-pointer hover:bg-orange-600 transition">
                                     <i class="fab fa-instagram text-white"></i>
                                 </button>
                             </a>
                             <a href="https://wa.me/6281217835337" target="__blank"
                                 class="flex items-center gap-2 rounded-full border border-orange-500">
-                                <button class="rounded-full p-3 bg-orange-500 flex items-center justify-center cursor-pointer hover:bg-orange-600 transition">
+                                <button
+                                    class="rounded-full p-3 bg-orange-500 flex items-center justify-center cursor-pointer hover:bg-orange-600 transition">
                                     <i class="fab fa-whatsapp text-white"></i>
                                 </button>
                             </a>
                             <a href="https://x.com/AlvinZanua"
                                 class="flex items-center gap-2 rounded-full border border-orange-500" target="__blank">
-                                <button class="rounded-full p-3 bg-orange-500 flex items-center justify-center cursor-pointer hover:bg-orange-600 transition">
+                                <button
+                                    class="rounded-full p-3 bg-orange-500 flex items-center justify-center cursor-pointer hover:bg-orange-600 transition">
                                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="#fff"
                                         viewBox="0 0 256 256">
                                         <path
@@ -439,7 +465,8 @@ $result = $stmt->get_result();
                             </a>
                             <a href="https://www.linkedin.com/in/alvin-zanua-putra-34a758288" target="__blank"
                                 class="flex items-center gap-2 rounded-full border border-orange-500">
-                                <button class="rounded-full p-3 bg-orange-500 flex items-center justify-center cursor-pointer hover:bg-orange-600 transition">
+                                <button
+                                    class="rounded-full p-3 bg-orange-500 flex items-center justify-center cursor-pointer hover:bg-orange-600 transition">
                                     <i class="fab fa-linkedin text-white"></i>
                                 </button>
                             </a>
@@ -482,18 +509,18 @@ $result = $stmt->get_result();
         });
 
         // Handle clear search
-        document.getElementById('clear-search').addEventListener('click', function() {
+        document.getElementById('clear-search').addEventListener('click', function () {
             document.getElementById('search-input').value = '';
             document.querySelector('form').submit();
         });
 
         // Handle category change
-        document.getElementById('category-select').addEventListener('change', function() {
+        document.getElementById('category-select').addEventListener('change', function () {
             document.getElementById('filter-form').submit();
         });
 
         // Handle search form submission
-        document.querySelector('form').addEventListener('submit', function(e) {
+        document.querySelector('form').addEventListener('submit', function (e) {
             if (e.target.querySelector('#search-input')) {
                 e.preventDefault();
                 const keyword = document.getElementById('search-input').value;

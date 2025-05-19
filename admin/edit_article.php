@@ -18,6 +18,19 @@ if (isset($_GET['id'])) {
     $result = $stmt->get_result();
     $article = $result->fetch_assoc();
 
+    // Fetch current category
+    $sql_category = "SELECT category_id FROM article_category WHERE article_id = ?";
+    $stmt_category = $conn->prepare($sql_category);
+    $stmt_category->bind_param("i", $id);
+    $stmt_category->execute();
+    $result_category = $stmt_category->get_result();
+    $current_category = $result_category->fetch_assoc();
+
+    // Fetch all categories
+    $sql_categories = "SELECT * FROM category";
+    $result_categories = $conn->query($sql_categories);
+    $categories = $result_categories->fetch_all(MYSQLI_ASSOC);
+
     if (!$article) {
         header("Location: ../dashboard.php");
         exit();
@@ -32,6 +45,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $title = $_POST['title'];
     $content = $_POST['content'];
     $publish_date = $_POST['publish_date'];
+    $category_id = $_POST['category_id'];
     
     // Handle file upload
     $image_url = $article['image_url']; // Default ke gambar yang ada
@@ -55,6 +69,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $stmt->bind_param("ssssi", $title, $content, $image_url, $publish_date, $id);
     
     if ($stmt->execute()) {
+        // Update category
+        $sql_delete_category = "DELETE FROM article_category WHERE article_id = ?";
+        $stmt_delete = $conn->prepare($sql_delete_category);
+        $stmt_delete->bind_param("i", $id);
+        $stmt_delete->execute();
+
+        $sql_insert_category = "INSERT INTO article_category (article_id, category_id) VALUES (?, ?)";
+        $stmt_insert = $conn->prepare($sql_insert_category);
+        $stmt_insert->bind_param("ii", $id, $category_id);
+        $stmt_insert->execute();
+
         header("Location: ../dashboard.php");
         exit();
     } else {
@@ -193,6 +218,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
 
                     <div class="mb-4">
+                        <label class="block text-gray-700 text-sm font-bold mb-2" for="category">
+                            Kategori
+                        </label>
+                        <select name="category_id" id="category" class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
+                            <?php foreach ($categories as $category): ?>
+                                <option value="<?php echo $category['id']; ?>" <?php echo ($current_category && $current_category['category_id'] == $category['id']) ? 'selected' : ''; ?>>
+                                    <?php echo htmlspecialchars($category['name']); ?>
+                                </option>
+                            <?php endforeach; ?>
+                        </select>
+                    </div>
+
+                    <div class="mb-4">
                         <label class="block text-gray-700 text-sm font-bold mb-2" for="image">
                             Gambar
                         </label>
@@ -200,6 +238,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline">
                         <?php if ($article['image_url']): ?>
                             <p class="text-sm text-gray-600 mt-2">Gambar saat ini: <?php echo htmlspecialchars($article['image_url']); ?></p>
+                            <img src="../assets/artikel/<?php echo htmlspecialchars($article['image_url']); ?>" alt="Gambar Artikel" class="w-32 h-auto">
                         <?php endif; ?>
                     </div>
 

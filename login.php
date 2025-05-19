@@ -47,6 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 setcookie('author_id', $user['author_id'], time() + (60 * 60), "/");
                 setcookie('username', $user['username'], time() + (60 * 60), "/");
                 setcookie('email', $user['email'], time() + (60 * 60), "/");
+                // selama 1 jam otomatis logout dewe kebusek cookies e
             }
 
             header("Location: dashboard.php");
