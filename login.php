@@ -173,59 +173,45 @@ mysqli_close($conn);
     <footer class="text-white px-8 bg-black rounded-lg ">
         <div class="container mx-auto py-8">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
-                <div>
-                    <h3 class="text-lg font-bold mb-4 underline">Kategori</h3>
-                    <ul class="text-sm space-y-2">
-                        <li>Final Project</li>
-                        <li>Pemrograman Website</li>
-                        <li>CRUD</li>
-                        <li>MySQL</li>
-                        <li>Autentikasi</li>
-                        <li>Tailwind CSS</li>
-                        <li>Middleware</li>
-                    </ul>
-                </div>
+                
                 <div>
                     <h3 class="text-lg font-bold mb-4 underline">Genre</h3>
                     <ul class="text-sm space-y-2">
                         <li>Action</li>
-                        <li>Adventure</li>
-                        <li>Marvel</li>
-                        <li>Sci-Fi</li>
-                        <li>DC</li>
+                        <li>Kekaisaran</li>
+                        <li>Drama</li>
                         <li>Romance</li>
                         <li>Comedy</li>
-                        <li>Anime</li>
                     </ul>
                 </div>
                 <div>
                     <h3 class="text-lg font-bold mb-4 underline">Lokasi</h3>
                     <div class="text-sm">
-                        <p>Semolowaru Utara VIII / 21, Sukolilo, Jawa Timur, Indonesia 60119</p>
-                        <p>Institut Teknologi Sepuluh Nopember</p>
+                        <p>Jalan Gajayana No. 50 Malang 65144</p>
+                        <p>UNIVERSITAS ISLAM NEGERI MAULANA MALIK IBRAHIM MALANG</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="inline-block sm:flex sm:items-center lg:flex lg:items-center gap-2 mb-6 xs:gap-x-16 gap-x-20">
             <div class="inline-block">
-                <h1 class="font-bold mt-6">Alvin Zanua Putra</h1>
+                <h1 class="font-bold mt-6">Cantika Melati Nugraini</h1>
                 <div class="flex items-center gap-2 mt-6">
-                    <a href="https://www.instagram.com/alvinzanua" target="__blank"
+                    <a href="https://www.instagram.com/cantikamelatii/" target="__blank"
                         class="flex items-center gap-2 rounded-full border border-white">
                         <button
                             class="rounded-full p-3 bg-neutral-700 flex items-center justify-center cursor-pointer hover:opacity-75 transition">
                             <i class="fab fa-instagram text-white"></i>
                         </button>
                     </a>
-                    <a href="https://wa.me/6281217835337" target="__blank"
+                    <a href="https://wa.me/6285894122396" target="__blank"
                         class="flex items-center gap-2 rounded-full border border-white">
                         <button
                             class="rounded-full p-3 bg-neutral-700 flex items-center justify-center cursor-pointer hover:opacity-75 transition">
                             <i class="fab fa-whatsapp text-white"></i>
                         </button>
                     </a>
-                    <a href="https://x.com/AlvinZanua" class="flex items-center gap-2 rounded-full border border-white"
+                    <a href="https://x.com/cantikaicha7?s=09" class="flex items-center gap-2 rounded-full border border-white"
                         target="__blank">
                         <button
                             class="rounded-full p-3 bg-neutral-700 flex items-center justify-center cursor-pointer hover:opacity-75 transition">
@@ -235,13 +221,6 @@ mysqli_close($conn);
                                     d="M214.75,211.71l-62.6-98.38,61.77-67.95a8,8,0,0,0-11.84-10.76L143.24,99.34,102.75,35.71A8,8,0,0,0,96,32H48a8,8,0,0,0-6.75,12.3l62.6,98.37-61.77,68a8,8,0,1,0,11.84,10.76l58.84-64.72,40.49,63.63A8,8,0,0,0,160,224h48a8,8,0,0,0,6.75-12.29ZM164.39,208,62.57,48h29L193.43,208Z">
                                 </path>
                             </svg>
-                        </button>
-                    </a>
-                    <a href="https://www.linkedin.com/in/alvin-zanua-putra-34a758288" target="__blank"
-                        class="flex items-center gap-2 rounded-full border border-white">
-                        <button
-                            class="rounded-full p-3 bg-neutral-700 flex items-center justify-center cursor-pointer hover:opacity-75 transition">
-                            <i class="fab fa-linkedin text-white"></i>
                         </button>
                     </a>
                 </div>
@@ -263,8 +242,8 @@ mysqli_close($conn);
                 </ul>
             </div>
             <div class="text-xs md:text-sm font-semibold flex md:justify-end py-4 pr-8">
-                <p>Kuliah Pemrograman Web Jurusan Teknik Informatika ITS (2024).
-                    Dosen: Imam Kuswardayan, S.Kom, M.T.</p>
+                <p>Kuliah Pemrograman Web Jurusan Teknik Informatika.
+                    Dosen: A'la Syauqi, M.Kom</p>
             </div>
         </div>
     </footer>
